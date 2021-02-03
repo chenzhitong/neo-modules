@@ -182,6 +182,20 @@
     }
   },
   {
+    "Name": "getblockheadercountasync",
+    "Request": {
+      "jsonrpc": "2.0",
+      "method": "getblockheadercount",
+      "params": [],
+      "id": 1
+    },
+    "Response": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": 3825
+    }
+  },
+  {
     "Name": "getblockcountasync",
     "Request": {
       "jsonrpc": "2.0",
@@ -341,15 +355,15 @@
       "jsonrpc": "2.0",
       "id": 1,
       "result": {
-        "id": -3,
+        "id": -4,
         "updatecounter": 0,
-        "hash": "0x9ac04cf223f646de5f7faccafe34e30e5d4382a2",
+        "hash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
         "nef": {
           "magic": 860243278,
           "compiler": "neo-core-v3.0",
           "tokens": [],
-          "script": "AP1BGvd7Zw==",
-          "checksum": 3921333105
+          "script": "APxBGvd7Zw==",
+          "checksum": 3155977747
         },
         "manifest": {
           "name": "GasToken",
@@ -367,29 +381,29 @@
                     "type": "Hash160"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "decimals",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "symbol",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "String",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "totalSupply",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
@@ -412,8 +426,8 @@
                     "type": "Any"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               }
             ],
@@ -454,22 +468,22 @@
     "Request": {
       "jsonrpc": "2.0",
       "method": "getcontractstate",
-      "params": [ "0x9ac04cf223f646de5f7faccafe34e30e5d4382a2" ],
+      "params": [ "0x70e2301955bf1e74cbb31d18c2f96972abadb328" ],
       "id": 1
     },
     "Response": {
       "jsonrpc": "2.0",
       "id": 1,
       "result": {
-        "id": -3,
+        "id": -4,
         "updatecounter": 0,
-        "hash": "0x9ac04cf223f646de5f7faccafe34e30e5d4382a2",
+        "hash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
         "nef": {
           "magic": 860243278,
           "compiler": "neo-core-v3.0",
           "tokens": [],
-          "script": "AP1BGvd7Zw==",
-          "checksum": 3921333105
+          "script": "APxBGvd7Zw==",
+          "checksum": 3155977747
         },
         "manifest": {
           "name": "GasToken",
@@ -487,29 +501,29 @@
                     "type": "Hash160"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "decimals",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "symbol",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "String",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "totalSupply",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
@@ -532,8 +546,8 @@
                     "type": "Any"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               }
             ],
@@ -581,15 +595,15 @@
       "jsonrpc": "2.0",
       "id": 1,
       "result": {
-        "id": -2,
+        "id": -3,
         "updatecounter": 0,
-        "hash": "0x4961bf0ab79370b23dc45cde29f568d0e0fa6e93",
+        "hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
         "nef": {
           "magic": 860243278,
           "compiler": "neo-core-v3.0",
           "tokens": [],
-          "script": "AP5BGvd7Zw==",
-          "checksum": 3395482975
+          "script": "AP1BGvd7Zw==",
+          "checksum": 3921333105
         },
         "manifest": {
           "name": "NeoToken",
@@ -607,43 +621,43 @@
                     "type": "Hash160"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "decimals",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "getCandidates",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Array",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "getCommittee",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Array",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "getGasPerBlock",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "getNextBlockValidators",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Array",
+                "offset": 0,
                 "safe": true
               },
               {
@@ -654,8 +668,8 @@
                     "type": "ByteArray"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               },
               {
@@ -666,22 +680,22 @@
                     "type": "Integer"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               },
               {
                 "name": "symbol",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "String",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "totalSupply",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
@@ -704,8 +718,8 @@
                     "type": "Any"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               },
               {
@@ -720,8 +734,8 @@
                     "type": "Integer"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
@@ -732,8 +746,8 @@
                     "type": "ByteArray"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               },
               {
@@ -748,8 +762,8 @@
                     "type": "ByteArray"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               }
             ],
@@ -791,21 +805,21 @@
       "jsonrpc": "2.0",
       "id": 1,
       "method": "getcontractstate",
-      "params": [ "0x0e1b9bfaa44e60311f6f3c96cfcd6d12c2fc3add" ]
+      "params": [ "0xf61eebf573ea36593fd43aa150c055ad7906ab83" ]
     },
     "Response": {
       "jsonrpc": "2.0",
       "id": 1,
       "result": {
-        "id": -2,
+        "id": -3,
         "updatecounter": 0,
-        "hash": "0x4961bf0ab79370b23dc45cde29f568d0e0fa6e93",
+        "hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
         "nef": {
           "magic": 860243278,
           "compiler": "neo-core-v3.0",
           "tokens": [],
-          "script": "AP5BGvd7Zw==",
-          "checksum": 3395482975
+          "script": "AP1BGvd7Zw==",
+          "checksum": 3921333105
         },
         "manifest": {
           "name": "NeoToken",
@@ -823,43 +837,43 @@
                     "type": "Hash160"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "decimals",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "getCandidates",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Array",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "getCommittee",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Array",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "getGasPerBlock",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "getNextBlockValidators",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Array",
+                "offset": 0,
                 "safe": true
               },
               {
@@ -870,8 +884,8 @@
                     "type": "ByteArray"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               },
               {
@@ -882,22 +896,22 @@
                     "type": "Integer"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               },
               {
                 "name": "symbol",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "String",
+                "offset": 0,
                 "safe": true
               },
               {
                 "name": "totalSupply",
                 "parameters": [],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
@@ -920,8 +934,8 @@
                     "type": "Any"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               },
               {
@@ -936,8 +950,8 @@
                     "type": "Integer"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Integer",
+                "offset": 0,
                 "safe": true
               },
               {
@@ -948,8 +962,8 @@
                     "type": "ByteArray"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               },
               {
@@ -964,8 +978,8 @@
                     "type": "ByteArray"
                   }
                 ],
-                "offset": 0,
                 "returntype": "Boolean",
+                "offset": 0,
                 "safe": false
               }
             ],
@@ -1015,7 +1029,7 @@
       "result": [
         {
           "id": -1,
-          "hash": "0xbee421fdbb3e791265d2104cb34934f53fcc0e45",
+          "hash": "0xa501d7d7d10983673b61b7a2d3a813b36f9f0e43",
           "nef": {
             "magic": 860243278,
             "compiler": "neo-core-v3.0",
@@ -1039,21 +1053,37 @@
                     {
                       "name": "manifest",
                       "type": "ByteArray"
+                    }
+                  ],
+                  "returntype": "Array",
+                  "offset": 0,
+                  "safe": false
+                },
+                {
+                  "name": "deploy",
+                  "parameters": [
+                    {
+                      "name": "nefFile",
+                      "type": "ByteArray"
+                    },
+                    {
+                      "name": "manifest",
+                      "type": "ByteArray"
                     },
                     {
                       "name": "data",
                       "type": "Any"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Array",
+                  "offset": 0,
                   "safe": false
                 },
                 {
                   "name": "destroy",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1064,15 +1094,15 @@
                       "type": "Hash160"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Array",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getMinimumDeploymentFee",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1083,8 +1113,24 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
+                  "safe": false
+                },
+                {
+                  "name": "update",
+                  "parameters": [
+                    {
+                      "name": "nefFile",
+                      "type": "ByteArray"
+                    },
+                    {
+                      "name": "manifest",
+                      "type": "ByteArray"
+                    }
+                  ],
+                  "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1103,8 +1149,8 @@
                       "type": "Any"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 }
               ],
@@ -1151,13 +1197,109 @@
         },
         {
           "id": -2,
-          "hash": "0x4961bf0ab79370b23dc45cde29f568d0e0fa6e93",
+          "hash": "0x971d69c6dd10ce88e7dfffec1dc603c6125a8764",
           "nef": {
             "magic": 860243278,
             "compiler": "neo-core-v3.0",
             "tokens": [],
             "script": "AP5BGvd7Zw==",
             "checksum": 3395482975
+          },
+          "manifest": {
+            "name": "LedgerContract",
+            "groups": [],
+            "supportedstandards": [],
+            "abi": {
+              "methods": [
+                {
+                  "name": "currentHash",
+                  "parameters": [],
+                  "returntype": "Hash256",
+                  "offset": 0,
+                  "safe": true
+                },
+                {
+                  "name": "currentIndex",
+                  "parameters": [],
+                  "returntype": "Integer",
+                  "offset": 0,
+                  "safe": true
+                },
+                {
+                  "name": "getBlock",
+                  "parameters": [
+                    {
+                      "name": "indexOrHash",
+                      "type": "ByteArray"
+                    }
+                  ],
+                  "returntype": "Array",
+                  "offset": 0,
+                  "safe": true
+                },
+                {
+                  "name": "getTransaction",
+                  "parameters": [
+                    {
+                      "name": "hash",
+                      "type": "Hash256"
+                    }
+                  ],
+                  "returntype": "Array",
+                  "offset": 0,
+                  "safe": true
+                },
+                {
+                  "name": "getTransactionFromBlock",
+                  "parameters": [
+                    {
+                      "name": "blockIndexOrHash",
+                      "type": "ByteArray"
+                    },
+                    {
+                      "name": "txIndex",
+                      "type": "Integer"
+                    }
+                  ],
+                  "returntype": "Array",
+                  "offset": 0,
+                  "safe": true
+                },
+                {
+                  "name": "getTransactionHeight",
+                  "parameters": [
+                    {
+                      "name": "hash",
+                      "type": "Hash256"
+                    }
+                  ],
+                  "returntype": "Integer",
+                  "offset": 0,
+                  "safe": true
+                }
+              ],
+              "events": []
+            },
+            "permissions": [
+              {
+                "contract": "*",
+                "methods": "*"
+              }
+            ],
+            "trusts": [],
+            "extra": null
+          },
+          "activeblockindex": 0
+        },
+        {
+          "id": -3,
+          "hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+          "nef": {
+            "magic": 860243278,
+            "compiler": "neo-core-v3.0",
+            "tokens": [],
+            "script": "AP1BGvd7Zw==",
+            "checksum": 3921333105
           },
           "manifest": {
             "name": "NeoToken",
@@ -1175,43 +1317,43 @@
                       "type": "Hash160"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "decimals",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getCandidates",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Array",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getCommittee",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Array",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getGasPerBlock",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getNextBlockValidators",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Array",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1222,8 +1364,8 @@
                       "type": "ByteArray"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1234,22 +1376,22 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
                   "name": "symbol",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "String",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "totalSupply",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1272,8 +1414,8 @@
                       "type": "Any"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1288,8 +1430,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1300,8 +1442,8 @@
                       "type": "ByteArray"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1316,115 +1458,8 @@
                       "type": "ByteArray"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
-                  "safe": false
-                }
-              ],
-              "events": [
-                {
-                  "name": "Transfer",
-                  "parameters": [
-                    {
-                      "name": "from",
-                      "type": "Hash160"
-                    },
-                    {
-                      "name": "to",
-                      "type": "Hash160"
-                    },
-                    {
-                      "name": "amount",
-                      "type": "Integer"
-                    }
-                  ]
-                }
-              ]
-            },
-            "permissions": [
-              {
-                "contract": "*",
-                "methods": "*"
-              }
-            ],
-            "trusts": [],
-            "extra": null
-          },
-          "activeblockindex": 0
-        },
-        {
-          "id": -3,
-          "hash": "0x9ac04cf223f646de5f7faccafe34e30e5d4382a2",
-          "nef": {
-            "magic": 860243278,
-            "compiler": "neo-core-v3.0",
-            "tokens": [],
-            "script": "AP1BGvd7Zw==",
-            "checksum": 3921333105
-          },
-          "manifest": {
-            "name": "GasToken",
-            "groups": [],
-            "supportedstandards": [
-              "NEP-17"
-            ],
-            "abi": {
-              "methods": [
-                {
-                  "name": "balanceOf",
-                  "parameters": [
-                    {
-                      "name": "account",
-                      "type": "Hash160"
-                    }
-                  ],
                   "offset": 0,
-                  "returntype": "Integer",
-                  "safe": true
-                },
-                {
-                  "name": "decimals",
-                  "parameters": [],
-                  "offset": 0,
-                  "returntype": "Integer",
-                  "safe": true
-                },
-                {
-                  "name": "symbol",
-                  "parameters": [],
-                  "offset": 0,
-                  "returntype": "String",
-                  "safe": true
-                },
-                {
-                  "name": "totalSupply",
-                  "parameters": [],
-                  "offset": 0,
-                  "returntype": "Integer",
-                  "safe": true
-                },
-                {
-                  "name": "transfer",
-                  "parameters": [
-                    {
-                      "name": "from",
-                      "type": "Hash160"
-                    },
-                    {
-                      "name": "to",
-                      "type": "Hash160"
-                    },
-                    {
-                      "name": "amount",
-                      "type": "Integer"
-                    },
-                    {
-                      "name": "data",
-                      "type": "Any"
-                    }
-                  ],
-                  "offset": 0,
-                  "returntype": "Boolean",
                   "safe": false
                 }
               ],
@@ -1461,13 +1496,120 @@
         },
         {
           "id": -4,
-          "hash": "0xc939a4af1c762e5edca36d4b61c06ba82c4c6ff5",
+          "hash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
           "nef": {
             "magic": 860243278,
             "compiler": "neo-core-v3.0",
             "tokens": [],
             "script": "APxBGvd7Zw==",
             "checksum": 3155977747
+          },
+          "manifest": {
+            "name": "GasToken",
+            "groups": [],
+            "supportedstandards": [
+              "NEP-17"
+            ],
+            "abi": {
+              "methods": [
+                {
+                  "name": "balanceOf",
+                  "parameters": [
+                    {
+                      "name": "account",
+                      "type": "Hash160"
+                    }
+                  ],
+                  "returntype": "Integer",
+                  "offset": 0,
+                  "safe": true
+                },
+                {
+                  "name": "decimals",
+                  "parameters": [],
+                  "returntype": "Integer",
+                  "offset": 0,
+                  "safe": true
+                },
+                {
+                  "name": "symbol",
+                  "parameters": [],
+                  "returntype": "String",
+                  "offset": 0,
+                  "safe": true
+                },
+                {
+                  "name": "totalSupply",
+                  "parameters": [],
+                  "returntype": "Integer",
+                  "offset": 0,
+                  "safe": true
+                },
+                {
+                  "name": "transfer",
+                  "parameters": [
+                    {
+                      "name": "from",
+                      "type": "Hash160"
+                    },
+                    {
+                      "name": "to",
+                      "type": "Hash160"
+                    },
+                    {
+                      "name": "amount",
+                      "type": "Integer"
+                    },
+                    {
+                      "name": "data",
+                      "type": "Any"
+                    }
+                  ],
+                  "returntype": "Boolean",
+                  "offset": 0,
+                  "safe": false
+                }
+              ],
+              "events": [
+                {
+                  "name": "Transfer",
+                  "parameters": [
+                    {
+                      "name": "from",
+                      "type": "Hash160"
+                    },
+                    {
+                      "name": "to",
+                      "type": "Hash160"
+                    },
+                    {
+                      "name": "amount",
+                      "type": "Integer"
+                    }
+                  ]
+                }
+              ]
+            },
+            "permissions": [
+              {
+                "contract": "*",
+                "methods": "*"
+              }
+            ],
+            "trusts": [],
+            "extra": null
+          },
+          "activeblockindex": 0
+        },
+        {
+          "id": -5,
+          "hash": "0x79bcd398505eb779df6e67e4be6c14cded08e2f2",
+          "nef": {
+            "magic": 860243278,
+            "compiler": "neo-core-v3.0",
+            "tokens": [],
+            "script": "APtBGvd7Zw==",
+            "checksum": 1136340263
           },
           "manifest": {
             "name": "PolicyContract",
@@ -1483,50 +1625,50 @@
                       "type": "Hash160"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
                   "name": "getExecFeeFactor",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getFeePerByte",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getMaxBlockSize",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getMaxBlockSystemFee",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getMaxTransactionsPerBlock",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "getStoragePrice",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1537,8 +1679,8 @@
                       "type": "Hash160"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1549,8 +1691,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1561,8 +1703,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1573,8 +1715,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1585,8 +1727,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1597,8 +1739,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1609,8 +1751,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1621,8 +1763,8 @@
                       "type": "Hash160"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 }
               ],
@@ -1640,14 +1782,14 @@
           "activeblockindex": 0
         },
         {
-          "id": -5,
-          "hash": "0xf4bbd95569e8dda2cb84eb609a1488ddd0d9fa91",
+          "id": -6,
+          "hash": "0x597b1471bbce497b7809e2c8f10db67050008b02",
           "nef": {
             "magic": 860243278,
             "compiler": "neo-core-v3.0",
             "tokens": [],
-            "script": "APtBGvd7Zw==",
-            "checksum": 1136340263
+            "script": "APpBGvd7Zw==",
+            "checksum": 3289425910
           },
           "manifest": {
             "name": "RoleManagement",
@@ -1667,8 +1809,8 @@
                       "type": "Array"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1683,8 +1825,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Array",
+                  "offset": 0,
                   "safe": true
                 }
               ],
@@ -1702,14 +1844,14 @@
           "activeblockindex": 0
         },
         {
-          "id": -6,
-          "hash": "0x8cd3889136056b3304ec59f6d424b8767710ed79",
+          "id": -7,
+          "hash": "0x8dc0e742cbdfdeda51ff8a8b78d46829144c80ee",
           "nef": {
             "magic": 860243278,
             "compiler": "neo-core-v3.0",
             "tokens": [],
-            "script": "APpBGvd7Zw==",
-            "checksum": 3289425910
+            "script": "APlBGvd7Zw==",
+            "checksum": 3902663397
           },
           "manifest": {
             "name": "OracleContract",
@@ -1720,8 +1862,8 @@
                 {
                   "name": "finish",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1748,15 +1890,15 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
                   "name": "verify",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": true
                 }
               ],
@@ -1809,14 +1951,14 @@
           "activeblockindex": 0
         },
         {
-          "id": -7,
-          "hash": "0xa92fbe5bf164170a624474841485b20b45a26047",
+          "id": -8,
+          "hash": "0xa2b524b68dfe43a9d56af84f443c6b9843b8028c",
           "nef": {
             "magic": 860243278,
             "compiler": "neo-core-v3.0",
             "tokens": [],
-            "script": "APlBGvd7Zw==",
-            "checksum": 3902663397
+            "script": "APhBGvd7Zw==",
+            "checksum": 3740064217
           },
           "manifest": {
             "name": "NameService",
@@ -1832,8 +1974,8 @@
                       "type": "String"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1844,15 +1986,15 @@
                       "type": "Hash160"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "decimals",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1867,15 +2009,15 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
                   "name": "getPrice",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1890,8 +2032,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "String",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1902,8 +2044,8 @@
                       "type": "String"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1914,8 +2056,8 @@
                       "type": "ByteArray"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Hash160",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1926,8 +2068,8 @@
                       "type": "ByteArray"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Map",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1942,8 +2084,8 @@
                       "type": "Hash160"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1954,8 +2096,8 @@
                       "type": "String"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1970,8 +2112,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "String",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -1986,8 +2128,8 @@
                       "type": "Hash160"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -1998,8 +2140,8 @@
                       "type": "Integer"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
@@ -2018,15 +2160,15 @@
                       "type": "String"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Void",
+                  "offset": 0,
                   "safe": false
                 },
                 {
                   "name": "symbol",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "String",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -2037,15 +2179,15 @@
                       "type": "Hash160"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Any",
+                  "offset": 0,
                   "safe": true
                 },
                 {
                   "name": "totalSupply",
                   "parameters": [],
-                  "offset": 0,
                   "returntype": "Integer",
+                  "offset": 0,
                   "safe": true
                 },
                 {
@@ -2060,8 +2202,8 @@
                       "type": "ByteArray"
                     }
                   ],
-                  "offset": 0,
                   "returntype": "Boolean",
+                  "offset": 0,
                   "safe": false
                 }
               ],
