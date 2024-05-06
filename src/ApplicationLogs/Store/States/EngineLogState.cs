@@ -15,7 +15,7 @@ namespace Neo.Plugins.Store.States
 {
     public class EngineLogState : ISerializable, IEquatable<EngineLogState>
     {
-        public UInt160 ScriptHash { get; private set; } = UInt160.Zero;
+        public UInt160 ScriptHash { get; private set; } = new();
         public string Message { get; private set; } = string.Empty;
 
         public static EngineLogState Create(UInt160 scriptHash, string message) =>

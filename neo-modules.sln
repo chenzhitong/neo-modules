@@ -43,21 +43,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQLiteWallet", "src\SQLiteW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorageDumper", "src\StorageDumper\StorageDumper.csproj", "{938D86EA-0F48-436B-9255-4AD9A8E6B9AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neo", "neo\src\Neo\Neo.csproj", "{A00FC746-1351-4275-B2D9-489477B409C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo", "neo\src\Neo\Neo.csproj", "{A00FC746-1351-4275-B2D9-489477B409C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neo.IO", "neo\src\Neo.IO\Neo.IO.csproj", "{FEC96A32-38AB-426B-A93E-D37583BEE901}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.IO", "neo\src\Neo.IO\Neo.IO.csproj", "{FEC96A32-38AB-426B-A93E-D37583BEE901}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neo.Json", "neo\src\Neo.Json\Neo.Json.csproj", "{188D043E-393D-4E5B-A216-4274BF9AFB23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.Json", "neo\src\Neo.Json\Neo.Json.csproj", "{188D043E-393D-4E5B-A216-4274BF9AFB23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neo.VM", "neo\src\Neo.VM\Neo.VM.csproj", "{EDDE78BC-2064-4517-B9B2-25BA012A93C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.VM", "neo\src\Neo.VM\Neo.VM.csproj", "{EDDE78BC-2064-4517-B9B2-25BA012A93C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neo.Extensions", "neo\src\Neo.Extensions\Neo.Extensions.csproj", "{9FF233D7-84C2-4947-96F6-88EE3594C66A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.Extensions", "neo\src\Neo.Extensions\Neo.Extensions.csproj", "{9FF233D7-84C2-4947-96F6-88EE3594C66A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neo.Cryptography.BLS12_381", "neo\src\Neo.Cryptography.BLS12_381\Neo.Cryptography.BLS12_381.csproj", "{7437514A-290D-4F84-B315-32ED95F710C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.Cryptography.BLS12_381", "neo\src\Neo.Cryptography.BLS12_381\Neo.Cryptography.BLS12_381.csproj", "{7437514A-290D-4F84-B315-32ED95F710C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependency", "Dependency", "{997874E0-C2A7-4EB2-85AA-180AF592DC6D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.ConsoleService", "neo\src\Neo.ConsoleService\Neo.ConsoleService.csproj", "{919EC990-C586-4B46-900E-8A7496004030}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.CLI", "neo\src\Neo.CLI\Neo.CLI.csproj", "{F9A412E0-5FAA-438B-9E2A-886EB4AA0C66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +167,10 @@ Global
 		{919EC990-C586-4B46-900E-8A7496004030}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{919EC990-C586-4B46-900E-8A7496004030}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{919EC990-C586-4B46-900E-8A7496004030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A412E0-5FAA-438B-9E2A-886EB4AA0C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A412E0-5FAA-438B-9E2A-886EB4AA0C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A412E0-5FAA-438B-9E2A-886EB4AA0C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A412E0-5FAA-438B-9E2A-886EB4AA0C66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,6 +201,7 @@ Global
 		{9FF233D7-84C2-4947-96F6-88EE3594C66A} = {997874E0-C2A7-4EB2-85AA-180AF592DC6D}
 		{7437514A-290D-4F84-B315-32ED95F710C1} = {997874E0-C2A7-4EB2-85AA-180AF592DC6D}
 		{919EC990-C586-4B46-900E-8A7496004030} = {997874E0-C2A7-4EB2-85AA-180AF592DC6D}
+		{F9A412E0-5FAA-438B-9E2A-886EB4AA0C66} = {997874E0-C2A7-4EB2-85AA-180AF592DC6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61D3ADE6-BBFC-402D-AB42-1C71C9F9EDE3}

@@ -17,9 +17,9 @@ namespace ApplicationLogs.Store.States
 {
     public class NotifyLogState : ISerializable, IEquatable<NotifyLogState>
     {
-        public UInt160 ScriptHash { get; protected set; } = UInt160.Zero;
+        public UInt160 ScriptHash { get; protected set; } = new();
         public string EventName { get; protected set; } = string.Empty;
-        public Guid[] StackItemIds { get; protected set; } = Array.Empty<Guid>();
+        public Guid[] StackItemIds { get; protected set; } = [];
 
         public static NotifyLogState Create(NotifyEventArgs notifyItem, Guid[] stackItemsIds) =>
             new()
@@ -44,7 +44,7 @@ namespace ApplicationLogs.Store.States
             // It should be safe because it filled from a transaction's notifications.
             uint aLen = reader.ReadUInt32();
             StackItemIds = new Guid[aLen];
-            for (int i = 0; i < aLen; i++)
+            for (var i = 0; i < aLen; i++)
                 StackItemIds[i] = new Guid(reader.ReadVarMemory().Span);
         }
 
@@ -54,7 +54,7 @@ namespace ApplicationLogs.Store.States
             writer.WriteVarString(EventName ?? string.Empty);
 
             writer.Write((uint)StackItemIds.Length);
-            for (int i = 0; i < StackItemIds.Length; i++)
+            for (var i = 0; i < StackItemIds.Length; i++)
                 writer.WriteVarBytes(StackItemIds[i].ToByteArray());
         }
 

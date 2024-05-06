@@ -20,13 +20,13 @@ namespace ApplicationLogs.Store.States
         public VMState VmState { get; private set; } = VMState.NONE;
         public string Exception { get; private set; } = string.Empty;
         public long GasConsumed { get; private set; } = 0L;
-        public Guid[] StackItemIds { get; private set; } = Array.Empty<Guid>();
+        public Guid[] StackItemIds { get; private set; } = [];
 
         public static ExecutionLogState Create(Blockchain.ApplicationExecuted appExecution, Guid[] stackItemIds) =>
             new()
             {
                 VmState = appExecution.VMState,
-                Exception = appExecution.Exception?.InnerException?.Message ?? appExecution.Exception?.Message,
+                Exception = appExecution.Exception?.InnerException?.Message ?? appExecution.Exception?.Message!,
                 GasConsumed = appExecution.GasConsumed,
                 StackItemIds = stackItemIds,
             };

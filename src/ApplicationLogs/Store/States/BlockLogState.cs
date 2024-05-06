@@ -16,7 +16,7 @@ namespace ApplicationLogs.Store.States
 {
     public class BlockLogState : ISerializable, IEquatable<BlockLogState>
     {
-        public Guid[] NotifyLogIds { get; private set; } = Array.Empty<Guid>();
+        public Guid[] NotifyLogIds { get; private set; } = [];
 
         public static BlockLogState Create(Guid[] notifyLogIds) =>
             new()

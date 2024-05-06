@@ -288,7 +288,7 @@ namespace ApplicationLogs.Store
                 .Add(engineStateId.ToByteArray())
                 .ToArray();
             var data = _snapshot.TryGet(key);
-            state = data?.AsSerializable<EngineLogState>();
+            state = data?.AsSerializable<EngineLogState>()!;
             return data != null && data.Length > 0;
         }
 
@@ -298,7 +298,7 @@ namespace ApplicationLogs.Store
                 .Add(hash)
                 .ToArray();
             var data = _snapshot.TryGet(key);
-            state = data?.AsSerializable<TransactionEngineLogState>();
+            state = data?.AsSerializable<TransactionEngineLogState>()!;
             return data != null && data.Length > 0;
         }
 
@@ -309,7 +309,7 @@ namespace ApplicationLogs.Store
                 .Add((byte)trigger)
                 .ToArray();
             var data = _snapshot.TryGet(key);
-            state = data?.AsSerializable<BlockLogState>();
+            state = data?.AsSerializable<BlockLogState>()!;
             return data != null && data.Length > 0;
         }
 
@@ -319,7 +319,7 @@ namespace ApplicationLogs.Store
                 .Add(notifyStateId.ToByteArray())
                 .ToArray();
             var data = _snapshot.TryGet(key);
-            state = data?.AsSerializable<NotifyLogState>();
+            state = data?.AsSerializable<NotifyLogState>()!;
             return data != null && data.Length > 0;
         }
 
@@ -331,7 +331,7 @@ namespace ApplicationLogs.Store
                 .AddBigEndian(iterIndex)
                 .ToArray();
             var data = _snapshot.TryGet(key);
-            state = data?.AsSerializable<ContractLogState>();
+            state = data?.AsSerializable<ContractLogState>()!;
             return data != null && data.Length > 0;
         }
 
@@ -341,7 +341,7 @@ namespace ApplicationLogs.Store
                 .Add(executionStateId.ToByteArray())
                 .ToArray();
             var data = _snapshot.TryGet(key);
-            state = data?.AsSerializable<ExecutionLogState>();
+            state = data?.AsSerializable<ExecutionLogState>()!;
             return data != null && data.Length > 0;
         }
 
@@ -388,7 +388,7 @@ namespace ApplicationLogs.Store
                 .Add(hash)
                 .ToArray();
             var data = _snapshot.TryGet(key);
-            state = data?.AsSerializable<TransactionLogState>();
+            state = data?.AsSerializable<TransactionLogState>()!;
             return data != null && data.Length > 0;
         }
 

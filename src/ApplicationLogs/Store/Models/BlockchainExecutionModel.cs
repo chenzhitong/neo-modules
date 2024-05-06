@@ -23,9 +23,9 @@ namespace ApplicationLogs.Store.Models
         public VMState VmState { get; private init; } = VMState.NONE;
         public string Exception { get; private init; } = string.Empty;
         public long GasConsumed { get; private init; } = 0L;
-        public StackItem[] Stack { get; private init; } = System.Array.Empty<StackItem>();
-        public BlockchainEventModel[] Notifications { get; set; } = System.Array.Empty<BlockchainEventModel>();
-        public ApplicationEngineLogModel[] Logs { get; set; } = System.Array.Empty<ApplicationEngineLogModel>();
+        public StackItem[] Stack { get; private init; } = [];
+        public BlockchainEventModel[] Notifications { get; set; } = [];
+        public ApplicationEngineLogModel[] Logs { get; set; } = [];
 
         public static BlockchainExecutionModel Create(TriggerType trigger, ExecutionLogState executionLogState, StackItem[] stack) =>
             new()
