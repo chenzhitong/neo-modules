@@ -130,7 +130,7 @@ namespace Neo.Plugins
             JObject account = new();
             var networkfee = Wallets.Helper.CalculateNetworkFee(
                 tx.AsSerializable<Transaction>(), system.StoreView, system.Settings,
-                wallet is not null ? a => wallet.GetAccount(a).Contract.Script : null);
+                wallet is not null ? a => wallet.GetAccount(a).Contract.Script : _ => null);
             account["networkfee"] = networkfee.ToString();
             return account;
         }
