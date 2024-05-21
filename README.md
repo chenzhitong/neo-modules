@@ -15,6 +15,10 @@
   </a>    
 </p>
 
+# ARCHIVED
+
+This repository was merged into https://github.com/neo-project/neo, newer (post-3.7.4) modules versions can be obtained from it.
+
 ## What is it
 
 A set of plugins/modules that can be used inside the NEO core library is available in this repository. You can refer to [the official documentation](https://docs.neo.org/docs/en-us/node/cli/setup.html) for the more detailed usage guide. 
