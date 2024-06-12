@@ -17,7 +17,7 @@
 
 # ARCHIVED
 
-This repository was merged into https://github.com/neo-project/neo, newer (post-3.7.4) modules versions can be obtained from it.
+This repository was merged into https://github.com/neo-project/neo, newer (post-3.7.5) modules versions can be obtained from it.
 
 ## What is it
 
