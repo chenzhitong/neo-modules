@@ -6,14 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Neo.ConsoleService" Version="1.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="DBFTPlugin\config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </None>
+    <PackageReference Include="Neo.ConsoleService" Version="1.2.0" ExcludeAssets="runtime" />
   </ItemGroup>
 
 </Project>

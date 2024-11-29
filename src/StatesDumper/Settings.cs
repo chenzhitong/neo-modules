@@ -1,5 +1,18 @@
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// Settings.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
 using Microsoft.Extensions.Configuration;
-using System;
+using Neo.SmartContract.Native;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Neo.Plugins
 {
@@ -21,22 +34,20 @@ namespace Neo.Plugins
         /// Persisting actions
         /// </summary>
         public PersistActions PersistAction { get; }
+        public IReadOnlyList<int> Exclude { get; }
 
         public static Settings Default { get; private set; }
 
         private Settings(IConfigurationSection section)
         {
             /// Geting settings for storage changes state dumper
-            this.BlockCacheSize = GetValueOrDefault(section.GetSection("BlockCacheSize"), 1000u, p => uint.Parse(p));
-            this.HeightToBegin = GetValueOrDefault(section.GetSection("HeightToBegin"), 0u, p => uint.Parse(p));
-            this.HeightToStartRealTimeSyncing = GetValueOrDefault(section.GetSection("HeightToStartRealTimeSyncing"), -1, p => int.Parse(p));
-            this.PersistAction = GetValueOrDefault(section.GetSection("PersistAction"), PersistActions.StorageChanges, p => (PersistActions)Enum.Parse(typeof(PersistActions), p));
-        }
-
-        public T GetValueOrDefault<T>(IConfigurationSection section, T defaultValue, Func<string, T> selector)
-        {
-            if (section.Value == null) return defaultValue;
-            return selector(section.Value);
+            this.BlockCacheSize = section.GetValue("BlockCacheSize", 1000u);
+            this.HeightToBegin = section.GetValue("HeightToBegin", 0u);
+            this.HeightToStartRealTimeSyncing = section.GetValue("HeightToStartRealTimeSyncing", -1);
+            this.PersistAction = section.GetValue("PersistAction", PersistActions.StorageChanges);
+            this.Exclude = section.GetSection("Exclude").Exists()
+                ? section.GetSection("Exclude").GetChildren().Select(p => int.Parse(p.Value)).ToArray()
+                : new[] { NativeContract.Ledger.Id };
         }
 
         public static void Load(IConfigurationSection section)

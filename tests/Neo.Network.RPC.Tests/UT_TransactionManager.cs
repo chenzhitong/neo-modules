@@ -1,8 +1,20 @@
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// UT_TransactionManager.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Neo.Cryptography;
+using Neo.Cryptography.ECC;
 using Neo.IO;
-using Neo.IO.Json;
+using Neo.Json;
 using Neo.Network.P2P;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC.Models;
@@ -27,6 +39,7 @@ namespace Neo.Network.RPC.Tests
         KeyPair keyPair2;
         UInt160 sender;
         UInt160 multiHash;
+        RpcClient client;
 
         [TestInitialize]
         public void TestSetup()
@@ -34,14 +47,15 @@ namespace Neo.Network.RPC.Tests
             keyPair1 = new KeyPair(Wallet.GetPrivateKeyFromWIF("KyXwTh1hB76RRMquSvnxZrJzQx7h9nQP2PCRL38v6VDb5ip3nf1p"));
             keyPair2 = new KeyPair(Wallet.GetPrivateKeyFromWIF("L2LGkrwiNmUAnWYb1XGd5mv7v2eDf6P4F3gHyXSrNJJR4ArmBp7Q"));
             sender = Contract.CreateSignatureRedeemScript(keyPair1.PublicKey).ToScriptHash();
-            multiHash = Contract.CreateMultiSigContract(2, keyPair1.PublicKey, keyPair2.PublicKey).ScriptHash;
+            multiHash = Contract.CreateMultiSigContract(2, new ECPoint[] { keyPair1.PublicKey, keyPair2.PublicKey }).ScriptHash;
             rpcClientMock = MockRpcClient(sender, new byte[1]);
+            client = rpcClientMock.Object;
             multiSigMock = MockMultiSig(multiHash, new byte[1]);
         }
 
         public static Mock<RpcClient> MockRpcClient(UInt160 sender, byte[] script)
         {
-            var mockRpc = new Mock<RpcClient>(MockBehavior.Strict, new Uri("http://seed1.neo.org:10331"), null, null);
+            var mockRpc = new Mock<RpcClient>(MockBehavior.Strict, new Uri("http://seed1.neo.org:10331"), null, null, null);
 
             // MockHeight
             mockRpc.Setup(p => p.RpcSendAsync("getblockcount")).ReturnsAsync(100).Verifiable();
@@ -49,7 +63,7 @@ namespace Neo.Network.RPC.Tests
             // calculatenetworkfee
             var networkfee = new JObject();
             networkfee["networkfee"] = 100000000;
-            mockRpc.Setup(p => p.RpcSendAsync("calculatenetworkfee", It.Is<JObject[]>(u => true)))
+            mockRpc.Setup(p => p.RpcSendAsync("calculatenetworkfee", It.Is<JToken[]>(u => true)))
                 .ReturnsAsync(networkfee)
                 .Verifiable();
 
@@ -74,7 +88,7 @@ namespace Neo.Network.RPC.Tests
 
         public static Mock<RpcClient> MockMultiSig(UInt160 multiHash, byte[] script)
         {
-            var mockRpc = new Mock<RpcClient>(MockBehavior.Strict, new Uri("http://seed1.neo.org:10331"), null, null);
+            var mockRpc = new Mock<RpcClient>(MockBehavior.Strict, new Uri("http://seed1.neo.org:10331"), null, null, null);
 
             // MockHeight
             mockRpc.Setup(p => p.RpcSendAsync("getblockcount")).ReturnsAsync(100).Verifiable();
@@ -82,7 +96,7 @@ namespace Neo.Network.RPC.Tests
             // calculatenetworkfee
             var networkfee = new JObject();
             networkfee["networkfee"] = 100000000;
-            mockRpc.Setup(p => p.RpcSendAsync("calculatenetworkfee", It.Is<JObject[]>(u => true)))
+            mockRpc.Setup(p => p.RpcSendAsync("calculatenetworkfee", It.Is<JToken[]>(u => true)))
                 .ReturnsAsync(networkfee)
                 .Verifiable();
 
@@ -115,7 +129,8 @@ namespace Neo.Network.RPC.Tests
                 State = VMState.HALT
             };
 
-            mockClient.Setup(p => p.RpcSendAsync("invokescript", It.Is<JObject[]>(j => j[0].AsString() == Convert.ToBase64String(script))))
+            mockClient.Setup(p => p.RpcSendAsync("invokescript", It.Is<JToken[]>(j =>
+                Convert.FromBase64String(j[0].AsString()).SequenceEqual(script))))
                 .ReturnsAsync(result.ToJson())
                 .Verifiable();
         }
@@ -152,23 +167,23 @@ namespace Neo.Network.RPC.Tests
             };
 
             byte[] script = new byte[1];
-            txManager = await TransactionManager.MakeTransactionAsync(rpcClientMock.Object, script, signers);
+            txManager = await TransactionManager.MakeTransactionAsync(client, script, signers);
             await txManager
                 .AddSignature(keyPair1)
                 .SignAsync();
 
             // get signature from Witnesses
             var tx = txManager.Tx;
-            byte[] signature = tx.Witnesses[0].InvocationScript.Skip(2).ToArray();
+            ReadOnlyMemory<byte> signature = tx.Witnesses[0].InvocationScript[2..];
 
-            Assert.IsTrue(Crypto.VerifySignature(tx.GetHashData(), signature, keyPair1.PublicKey));
+            Assert.IsTrue(Crypto.VerifySignature(tx.GetSignData(client.protocolSettings.Network), signature.Span, keyPair1.PublicKey));
             // verify network fee and system fee
             Assert.AreEqual(100000000/*Mock*/, tx.NetworkFee);
             Assert.AreEqual(100, tx.SystemFee);
 
             // duplicate sign should not add new witness
-            await txManager.AddSignature(keyPair1).SignAsync();
-            Assert.AreEqual(1, txManager.Tx.Witnesses.Length);
+            await ThrowsAsync<Exception>(async () => await txManager.AddSignature(keyPair1).SignAsync());
+            Assert.AreEqual(null, txManager.Tx.Witnesses);
 
             // throw exception when the KeyPair is wrong
             await ThrowsAsync<Exception>(async () => await txManager.AddSignature(keyPair2).SignAsync());
@@ -245,7 +260,7 @@ namespace Neo.Network.RPC.Tests
 
             var tx = txManager.Tx;
             Assert.AreEqual(2, tx.Witnesses.Length);
-            Assert.AreEqual(41, tx.Witnesses[0].VerificationScript.Length);
+            Assert.AreEqual(40, tx.Witnesses[0].VerificationScript.Length);
             Assert.AreEqual(66, tx.Witnesses[0].InvocationScript.Length);
         }
     }

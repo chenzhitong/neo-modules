@@ -1,3 +1,14 @@
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// Store.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
 using Neo.Persistence;
 using RocksDbSharp;
 using System;
@@ -22,7 +33,7 @@ namespace Neo.Plugins.Storage
 
         public ISnapshot GetSnapshot()
         {
-            return new Snapshot(this, db);
+            return new Snapshot(db);
         }
 
         public IEnumerable<(byte[] Key, byte[] Value)> Seek(byte[] keyOrPrefix, SeekDirection direction = SeekDirection.Forward)
@@ -40,7 +51,7 @@ namespace Neo.Plugins.Storage
 
         public bool Contains(byte[] key)
         {
-            return db.Get(key) != null;
+            return db.Get(key, Array.Empty<byte>(), 0, 0) >= 0;
         }
 
         public byte[] TryGet(byte[] key)

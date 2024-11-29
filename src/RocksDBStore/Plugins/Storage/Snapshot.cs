@@ -1,3 +1,14 @@
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// Snapshot.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
 using Neo.Persistence;
 using RocksDbSharp;
 using System;
@@ -7,15 +18,13 @@ namespace Neo.Plugins.Storage
 {
     internal class Snapshot : ISnapshot
     {
-        private readonly Store store;
         private readonly RocksDb db;
         private readonly RocksDbSharp.Snapshot snapshot;
         private readonly WriteBatch batch;
         private readonly ReadOptions options;
 
-        public Snapshot(Store store, RocksDb db)
+        public Snapshot(RocksDb db)
         {
-            this.store = store;
             this.db = db;
             this.snapshot = db.CreateSnapshot();
             this.batch = new WriteBatch();
@@ -56,7 +65,7 @@ namespace Neo.Plugins.Storage
 
         public bool Contains(byte[] key)
         {
-            return db.Get(key, readOptions: options) != null;
+            return db.Get(key, Array.Empty<byte>(), 0, 0, readOptions: options) >= 0;
         }
 
         public byte[] TryGet(byte[] key)

@@ -1,8 +1,17 @@
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// PolicyAPI.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
 using Neo.SmartContract.Native;
-using Neo.VM;
 using System.Linq;
 using System.Threading.Tasks;
-using Neo.IO.Json;
 
 namespace Neo.Network.RPC
 {
@@ -20,22 +29,22 @@ namespace Neo.Network.RPC
         public PolicyAPI(RpcClient rpcClient) : base(rpcClient) { }
 
         /// <summary>
-        /// Get Max Transactions Count Per Block
+        /// Get Fee Factor
         /// </summary>
         /// <returns></returns>
-        public async Task<uint> GetMaxTransactionsPerBlockAsync()
+        public async Task<uint> GetExecFeeFactorAsync()
         {
-            var result = await TestInvokeAsync(scriptHash, "getMaxTransactionsPerBlock").ConfigureAwait(false);
+            var result = await TestInvokeAsync(scriptHash, "getExecFeeFactor").ConfigureAwait(false);
             return (uint)result.Stack.Single().GetInteger();
         }
 
         /// <summary>
-        /// Get Max Block Size
+        /// Get Storage Price
         /// </summary>
         /// <returns></returns>
-        public async Task<uint> GetMaxBlockSizeAsync()
+        public async Task<uint> GetStoragePriceAsync()
         {
-            var result = await TestInvokeAsync(scriptHash, "getMaxBlockSize").ConfigureAwait(false);
+            var result = await TestInvokeAsync(scriptHash, "getStoragePrice").ConfigureAwait(false);
             return (uint)result.Stack.Single().GetInteger();
         }
 

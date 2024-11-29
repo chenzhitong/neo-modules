@@ -1,20 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <PackageId>Neo.Plugins.ApplicationLogs</PackageId>
     <RootNamespace>Neo.Plugins</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
+  
   <ItemGroup>
-    <None Update="ApplicationLogs\config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </None>
+    <ProjectReference Include="..\..\neo\src\Neo.ConsoleService\Neo.ConsoleService.csproj" />
+    <ProjectReference Include="..\RpcServer\RpcServer.csproj" AdditionalProperties="IncludeSettingsFileOutput=False">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\LevelDBStore\LevelDBStore.csproj" />
-    <ProjectReference Include="..\RpcServer\RpcServer.csproj" />
-  </ItemGroup>
-
 </Project>

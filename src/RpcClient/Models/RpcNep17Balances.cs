@@ -1,4 +1,15 @@
-using Neo.IO.Json;
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// RpcNep17Balances.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
+using Neo.Json;
 using Neo.Wallets;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +23,20 @@ namespace Neo.Network.RPC.Models
 
         public List<RpcNep17Balance> Balances { get; set; }
 
-        public JObject ToJson()
+        public JObject ToJson(ProtocolSettings protocolSettings)
         {
-            JObject json = new JObject();
+            JObject json = new();
             json["balance"] = Balances.Select(p => p.ToJson()).ToArray();
-            json["address"] = UserScriptHash.ToAddress();
+            json["address"] = UserScriptHash.ToAddress(protocolSettings.AddressVersion);
             return json;
         }
 
-        public static RpcNep17Balances FromJson(JObject json)
+        public static RpcNep17Balances FromJson(JObject json, ProtocolSettings protocolSettings)
         {
-            RpcNep17Balances nep17Balance = new RpcNep17Balances
+            RpcNep17Balances nep17Balance = new()
             {
-                Balances = ((JArray)json["balance"]).Select(p => RpcNep17Balance.FromJson(p)).ToList(),
-                UserScriptHash = json["address"].ToScriptHash()
+                Balances = ((JArray)json["balance"]).Select(p => RpcNep17Balance.FromJson((JObject)p, protocolSettings)).ToList(),
+                UserScriptHash = json["address"].ToScriptHash(protocolSettings)
             };
             return nep17Balance;
         }
@@ -41,18 +52,18 @@ namespace Neo.Network.RPC.Models
 
         public JObject ToJson()
         {
-            JObject json = new JObject();
+            JObject json = new();
             json["assethash"] = AssetHash.ToString();
             json["amount"] = Amount.ToString();
             json["lastupdatedblock"] = LastUpdatedBlock;
             return json;
         }
 
-        public static RpcNep17Balance FromJson(JObject json)
+        public static RpcNep17Balance FromJson(JObject json, ProtocolSettings protocolSettings)
         {
-            RpcNep17Balance balance = new RpcNep17Balance
+            RpcNep17Balance balance = new()
             {
-                AssetHash = json["assethash"].ToScriptHash(),
+                AssetHash = json["assethash"].ToScriptHash(protocolSettings),
                 Amount = BigInteger.Parse(json["amount"].AsString()),
                 LastUpdatedBlock = (uint)json["lastupdatedblock"].AsNumber()
             };

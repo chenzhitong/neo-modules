@@ -1,10 +1,19 @@
-using Neo.IO.Json;
-using Neo.SmartContract.Native;
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// RpcInvokeResult.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
+using Neo.Json;
 using Neo.VM;
 using Neo.VM.Types;
 using System;
 using System.Linq;
-using System.Numerics;
 
 namespace Neo.Network.RPC.Models
 {
@@ -22,12 +31,14 @@ namespace Neo.Network.RPC.Models
 
         public string Exception { get; set; }
 
+        public string Session { get; set; }
+
         public JObject ToJson()
         {
-            JObject json = new JObject();
+            JObject json = new();
             json["script"] = Script;
             json["state"] = State;
-            json["gasconsumed"] = new BigDecimal(new BigInteger(GasConsumed), NativeContract.GAS.Decimals).ToString();
+            json["gasconsumed"] = GasConsumed.ToString();
             if (!string.IsNullOrEmpty(Exception))
                 json["exception"] = Exception;
             try
@@ -45,17 +56,17 @@ namespace Neo.Network.RPC.Models
 
         public static RpcInvokeResult FromJson(JObject json)
         {
-            RpcInvokeResult invokeScriptResult = new RpcInvokeResult
+            RpcInvokeResult invokeScriptResult = new()
             {
                 Script = json["script"].AsString(),
-                State = json["state"].TryGetEnum<VMState>(),
-                GasConsumed = (long)BigDecimal.Parse(json["gasconsumed"].AsString(), NativeContract.GAS.Decimals).Value,
+                State = json["state"].GetEnum<VMState>(),
+                GasConsumed = long.Parse(json["gasconsumed"].AsString()),
             };
-            if (json.ContainsProperty("exception"))
-                invokeScriptResult.Exception = json["exception"]?.AsString();
+            invokeScriptResult.Exception = json["exception"]?.AsString();
+            invokeScriptResult.Session = json["session"]?.AsString();
             try
             {
-                invokeScriptResult.Stack = ((JArray)json["stack"]).Select(p => Utility.StackItemFromJson(p)).ToArray();
+                invokeScriptResult.Stack = ((JArray)json["stack"]).Select(p => Utility.StackItemFromJson((JObject)p)).ToArray();
             }
             catch { }
             invokeScriptResult.Tx = json["tx"]?.AsString();
@@ -71,7 +82,7 @@ namespace Neo.Network.RPC.Models
 
         public JObject ToJson()
         {
-            JObject json = new JObject();
+            JObject json = new();
             json["type"] = Type;
             json["value"] = Value;
             return json;

@@ -1,3 +1,14 @@
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// UT_ContractClient.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Neo.SmartContract;
@@ -49,13 +60,13 @@ namespace Neo.Network.RPC.Tests
                     Methods = new ContractMethodDescriptor[0]
                 },
                 Groups = new ContractGroup[0],
-                Trusts = WildcardContainer<UInt160>.Create(),
+                Trusts = WildcardContainer<ContractPermissionDescriptor>.Create(),
                 SupportedStandards = new string[] { "NEP-10" },
                 Extra = null,
             };
             using (ScriptBuilder sb = new ScriptBuilder())
             {
-                sb.EmitDynamicCall(NativeContract.ContractManagement.Hash, "deploy", new byte[1], manifest.ToString());
+                sb.EmitDynamicCall(NativeContract.ContractManagement.Hash, "deploy", new byte[1], manifest.ToJson().ToString());
                 script = sb.ToArray();
             }
 

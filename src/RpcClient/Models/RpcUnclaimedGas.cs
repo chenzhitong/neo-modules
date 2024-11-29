@@ -1,17 +1,27 @@
-using Neo.IO.Json;
-using Neo.SmartContract.Native;
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// RpcUnclaimedGas.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
+using Neo.Json;
 
 namespace Neo.Network.RPC.Models
 {
     public class RpcUnclaimedGas
     {
-        public BigDecimal Unclaimed { get; set; }
+        public long Unclaimed { get; set; }
 
         public string Address { get; set; }
 
         public JObject ToJson()
         {
-            JObject json = new JObject();
+            JObject json = new();
             json["unclaimed"] = Unclaimed.ToString();
             json["address"] = Address;
             return json;
@@ -21,7 +31,7 @@ namespace Neo.Network.RPC.Models
         {
             return new RpcUnclaimedGas
             {
-                Unclaimed = BigDecimal.Parse(json["unclaimed"].AsString(), NativeContract.GAS.Decimals),
+                Unclaimed = long.Parse(json["unclaimed"].AsString()),
                 Address = json["address"].AsString()
             };
         }

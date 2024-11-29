@@ -1,4 +1,15 @@
-using Neo.IO.Json;
+// Copyright (C) 2015-2024 The Neo Project.
+//
+// TestUtils.cs file belongs to the neo project and is free
+// software distributed under the MIT software license, see the
+// accompanying file LICENSE in the main directory of the
+// repository or http://www.opensource.org/licenses/mit-license.php
+// for more details.
+//
+// Redistribution and use in source and binary forms with or without
+// modifications are permitted.
+
+using Neo.Json;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC.Models;
 using System.Collections.Generic;
@@ -9,21 +20,23 @@ namespace Neo.Network.RPC.Tests
 {
     internal static class TestUtils
     {
-        public readonly static List<RpcTestCase> RpcTestCases = ((JArray)JObject.Parse(File.ReadAllText("RpcTestCases.json"))).Select(p => RpcTestCase.FromJson(p)).ToList();
+        public readonly static List<RpcTestCase> RpcTestCases = ((JArray)JToken.Parse(File.ReadAllText("RpcTestCases.json"))).Select(p => RpcTestCase.FromJson((JObject)p)).ToList();
 
         public static Block GetBlock(int txCount)
         {
             return new Block
             {
-                PrevHash = UInt256.Zero,
-                MerkleRoot = UInt256.Zero,
-                NextConsensus = UInt160.Zero,
-                Witness = new Witness
+                Header = new Header
                 {
-                    InvocationScript = new byte[0],
-                    VerificationScript = new byte[0]
+                    PrevHash = UInt256.Zero,
+                    MerkleRoot = UInt256.Zero,
+                    NextConsensus = UInt160.Zero,
+                    Witness = new Witness
+                    {
+                        InvocationScript = new byte[0],
+                        VerificationScript = new byte[0]
+                    }
                 },
-                ConsensusData = new ConsensusData(),
                 Transactions = Enumerable.Range(0, txCount).Select(p => GetTransaction()).ToArray()
             };
         }
@@ -73,8 +86,8 @@ namespace Neo.Network.RPC.Tests
             return new RpcTestCase
             {
                 Name = json["Name"].AsString(),
-                Request = RpcRequest.FromJson(json["Request"]),
-                Response = RpcResponse.FromJson(json["Response"]),
+                Request = RpcRequest.FromJson((JObject)json["Request"]),
+                Response = RpcResponse.FromJson((JObject)json["Response"]),
             };
         }
 
